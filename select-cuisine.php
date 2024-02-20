@@ -14,21 +14,19 @@
             <?php
 
             include('shared/db.php');
-            // set up & run query, store data results
+            
             $sql = 'SELECT * FROM cuisines ORDER BY name';
             $cmd = $db->prepare($sql);
             $cmd->execute();
             $cuisines = $cmd->fetchAll();
-            // loop through list of services, adding each one to dropdown 1 at a time
+            
             foreach ($cuisines as $cuisine) {
                 echo '<option>' . $cuisine['name'] . '</option>';
             }
-            //disconnet
+           
             $db = null;
             ?>
         </select> 
         </fieldset>
         <button>Get Foods</button>
 </form>
-</body>
-</html>
